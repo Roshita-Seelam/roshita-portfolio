@@ -15,7 +15,6 @@ export default function Home() {
         <p className="sm:text-5xl text-center text-3xl">
           Ideas I have worked on
         </p>
-        {/* <p className="text-center">Technologies I use</p> */}
         <Projects />
       </ScrollElement>
       <AboutMe />

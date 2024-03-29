@@ -9,10 +9,10 @@ import Button from "@/common/Form/Button";
 
 export default function Projects() {
   return (
-    <div className="grid lg:grid-cols-12 py-2 md:grid-cols-[auto,1fr,1fr,auto] sm:grid-cols-1 mb-16 gap-2.5 bg-primary">
+    <div className="grid lg:grid-cols-12 py-2 md:grid-cols-[auto,1fr,1fr,auto] sm:grid-cols-1 mb-16 bg-primary gap-4">
       {projects.map((p, index) => (
         <div
-          className="col-span-3 bg-primary w-full overflow-hidden border-primary lg:min-h-[700px] h-auto my-6"
+          className="col-span-3  w-full overflow-hidden lg:min-h-[700px] h-auto my-6 border-4 rounded-sm"
           key={`${p.name}-${index}}`}
         >
           <div className="flex rounded flex-col relative h-full project-card z-0">
@@ -24,7 +24,7 @@ export default function Projects() {
             />
             <div className="flex flex-col gap-4 p-2.5 text-text-primary z-10">
               <div className="flex justify-between items-baseline px-0 ">
-                <p className="font-semibold text-xl mb-2.5">{p.name}</p>
+                <p className="font-semibold text-xl mt-6">{p.name}</p>
               </div>
               <div className="px-0">
                 <p className="text-sm">{p.description}</p>
