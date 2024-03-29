@@ -1,20 +1,24 @@
-'use client'
+"use client";
 
-import classNames from 'classnames'
-import { ArrowUp } from 'react-feather'
+import classNames from "classnames";
 
-import scroller from '@/hooks/scroller'
-import Button from '@/common/Form/Button'
-import useScroller from '@/hooks/useScrollTop'
+import scroller from "@/hooks/scroller";
+import Button from "@/common/Form/Button";
+import useScroller from "@/hooks/useScrollTop";
 
 export default function ScrollToTop() {
-  const {showToTop} = useScroller()
+  const { showToTop } = useScroller();
   return (
-    <Button 
-      className={classNames('rounded-full border-2 border-secondary bg-secondary text-primary fixed bottom-8 right-6 flex items-center p-4', { 'hidden': !showToTop })}
-      onClick={() => { scroller.top() }}
-      >
-      <ArrowUp className='' size={24} strokeWidth={2}/>
+    <Button
+      className={classNames(
+        "rounded-full bg-text-primary text-primary fixed bottom-12 right-6 flex items-center px-4 py-3",
+        { hidden: !showToTop }
+      )}
+      onClick={() => {
+        scroller.top();
+      }}
+    >
+      &uarr;
     </Button>
   );
 }

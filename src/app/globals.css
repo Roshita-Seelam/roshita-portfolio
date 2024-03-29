@@ -3,39 +3,68 @@
 @tailwind utilities;
 
 /* :root {
-  --foreground-rgb: 196,149,192;
-  --background-start-rgb: 39,39,98;
-  --background-end-rgb: 39,39,98;
+  --text-primary: 196,149,192;
+  --bg-primary: 39,39,98;
+  --bg-primary: 39,39,98;
   --brown-sugar: 229, 69, 16;
   --mint-cream: 253, 252, 220;
 } */
 
 /* @media (prefers-color-scheme: dark) { */
   :root {
-    --foreground-rgb: 238, 218, 209;
-    --background-start-rgb: 13, 20, 28;
-    --background-end-rgb: 13, 20, 28;
-    --brown-sugar: 199, 108, 67;
-    --mint-cream: 234, 242, 239;
+    --text-primary: 255, 253, 237;
+    --bg-primary: 31, 37, 38;
+    --bg-secondary: 191,185,174;
+    --text-secondary: 2,3,4;
   }
 /* } */
 
 html {
-  color: rgb(var(--foreground-rgb));
+  color: rgb(var(--text-primary));
   background: linear-gradient(
       to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
+      rgb(var(--bg-primary))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--bg-primary));
 }
 
 header {
-  background-color: rgba(var(--background-end-rgb),0.75);
+  background-color: rgba(var(--bg-primary),0.7);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(var(--bg-secondary)); 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--bg-primary)); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--text-primary)); 
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+.ant-drawer-content {
+  background-color: rgb(var(--bg-primary)) !important;
+  color: rgb(var(--text-primary));
+  svg {
+    fill: rgb(var(--text-primary)) !important;
   }
 }

@@ -9,35 +9,29 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: 'rgb(var(--background-start-rgb))',
-        secondary: 'rgb(var(--brown-sugar))',
-        'text-primary': 'rgb(var(--foreground-rgb))',
-        'text-secondary': 'rgb(var(--mint-cream))'
-      },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        primary: "rgb(var(--bg-primary))",
+        secondary: "rgb(var(--bg-secondary))",
+        "text-primary": "rgb(var(--text-primary))",
+        "text-secondary": "rgb(var(--text-secondary))",
       },
       keyframes: {
         bounce: {
-          '0%, 50%, 100%': {
-            transform: 'translateY(0)',
-            animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)',
-
+          "0%, 50%, 100%": {
+            transform: "translateY(0)",
+            animationTimingFunction: "cubic-bezier(0.8, 0, 1, 1)",
           },
-          '25%, 75%': {
-            transform: 'translateY(-20px);',
-            animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)'
+          "25%, 75%": {
+            transform: "translateY(-20px);",
+            animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
           },
-        }
+        },
       },
       animation: {
-        'bounce': 'bounce 1s 2',
-      }
+        bounce: "bounce 1s 2",
+        "spin-slow": "spin 5s linear infinite",
+      },
     },
   },
   plugins: [],
 };
 export default config;
-

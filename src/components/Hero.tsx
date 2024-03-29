@@ -1,56 +1,44 @@
-'use client'
+"use client";
 
-import React from 'react';
-import Button from '@/common/Form/Button';
-import { socials } from '@/constants/footer';
-import scroller from '@/hooks/scroller';
-import Image from 'next/image';
-import Link from 'next/link';
-import { ChevronsDown, Linkedin, GitHub, Icon } from 'react-feather';
-import { bio } from '@/constants/bio'
+import React from "react";
+import Image from "next/image";
 
-const iconMap: Record<string, Icon> = { // Add Record<string, Icon> type for iconMap
-  'linkedin': Linkedin,
-  'github': GitHub
-};
+import Button from "@/common/Form/Button";
+import scroller from "@/hooks/scroller";
+import { bio } from "@/constants/bio";
 
 export default function Hero() {
   return (
-    <div className='flex relative items-center'>
-      <div className="flex flex-col items-center justify-center w-full min-h-screen -mt-10 gap-4 hero z-10">
-        <h1 className='text-7xl'>Hola!</h1>
-        <div className='md:w-2/3 md:px-0 px-4'>
-          <p className='md:py-6 text-center'>
-            {bio}
-          </p>
-          <div className='flex items-center justify-center gap-4 my-8'>
-          {socials.map(p => {
-            const IconComponent = iconMap[p.icon];
-            return (
-              <Button key={p.slug} className='border border-text-primary rounded-full p-4 flex items-center'>
-                <Link href={p.url}>
-                  <IconComponent />
-                </Link>
-              </Button>
-            );
-          })}
-          </div>
-        </div>
-        <Button 
-          onClick={() => { scroller.to('projects') }} 
-          className='font-medium py-3 px-6 rounded-full border border-text-primary hover:bg-text-primary hover:text-primary animate-bounce'
-          icon={<ChevronsDown size={24} className='ml-1' />}
-        >
-          Checkout my projects
-        </Button>
+    <div className="grid lg:grid-cols-12 grid-cols-1 lg:min-h-[630px]">
+      <div className="lg:col-span-4 relative col-span-1 lg:block hidden">
+        <Image
+          src="https://r-prf.s3.ap-southeast-2.amazonaws.com/images/portfolio-hero-image.jpg"
+          fill
+          alt=""
+          className="lg:object-contain !relative"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          fetchPriority="high"
+        />
       </div>
-      <Image 
-        src='https://r-prf.s3.ap-southeast-2.amazonaws.com/images/hero-bg.svg' 
-        fill 
-        alt="" 
-        className='object-cover'
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      />
+      <div className="lg:grid lg:grid-cols-subgrid lg:col-span-8 col-span-1 bg-text-primary justify-center text-primary ">
+        <div className="col-start-2 col-span-6 flex flex-col justify-center gap-6 lg:m-0 my-6 mx-4">
+          <p className="text-2xl">Hello!</p>
+          <h1 className="text-6xl font-black bg-gradient-to-r from-secondary to-text-secondary bg-clip-text text-transparent w-fit">
+            I'm Roshita
+          </h1>
+          <p>{bio}</p>
+          <Button
+            onClick={() => {
+              scroller.to("projects", 100);
+            }}
+            className="relative group text-yellow-50 font-medium w-fit py-3 px-6 rounded-xl isolation-auto z-10 border-2 border-emerald-950 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-950 before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700 animate-bounce"
+          >
+            <span className="text-primary group-hover:text-text-primary">
+              Checkout my projects
+            </span>
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
