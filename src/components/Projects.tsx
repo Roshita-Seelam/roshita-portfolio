@@ -23,7 +23,7 @@ export default function Projects() {
               className="object-fill opacity-60 blur-sm"
             />
             <div className="flex flex-col gap-4 p-2.5 text-text-primary z-10">
-              <div className="flex justify-between items-baseline px-0 ">
+              <div className="flex justify-between px-0 ">
                 <p className="font-semibold text-xl mt-6">{p.name}</p>
               </div>
               <div className="px-0">
