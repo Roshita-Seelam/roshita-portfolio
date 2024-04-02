@@ -1,6 +1,5 @@
 'use client'
 
-import { ButtonGroupProps } from 'antd/es/button'
 import classNames from 'classnames'
 interface ButtonProps {
   type?: "button" | "submit" | "reset" | undefined
@@ -10,9 +9,9 @@ interface ButtonProps {
   onClick?: VoidFunction
 }
 
-export default function Button({children, className, onClick, icon, type='button', ...rest}:ButtonProps) {
+export default function Button({children, className, onClick, icon, type='button'}:ButtonProps) {
   return (
-    <button type={type} className={classNames(className, icon ? 'flex items-center border-none' : undefined)} onClick={onClick} {...rest}>
+    <button type={type} className={classNames(className, icon ? 'flex items-center border-none' : undefined)} onClick={onClick}>
       <div>
       {children}
       </div>

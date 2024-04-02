@@ -6,6 +6,7 @@ import Image from "next/image";
 import Button from "@/common/Form/Button";
 import scroller from "@/hooks/scroller";
 import { bio } from "@/constants/bio";
+import { track } from '@vercel/analytics'
 
 export default function Hero() {
   return (
@@ -29,6 +30,7 @@ export default function Hero() {
           <p>{bio}</p>
           <Button
             onClick={() => {
+              track('Scroll down to projects', {location: 'Hero'})
               scroller.to("projects", 100);
             }}
             className="relative group text-yellow-50 font-medium w-fit py-3 px-6 rounded-xl isolation-auto z-10 border-2 border-emerald-950 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-950 before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700 animate-bounce"

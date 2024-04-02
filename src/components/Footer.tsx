@@ -6,6 +6,8 @@ import ReactCurvedText from "react-curved-text";
 import { mails, socials } from "@/constants/footer";
 import ScrollElement from "@/common/Scroll/Element";
 import Brand from "./Icons/brand";
+import { track } from '@vercel/analytics'
+import Button from '@/common/Form/Button'
 
 export default function Footer() {
   return (
@@ -38,13 +40,14 @@ export default function Footer() {
             </p>
             <div className="flex flex-col items-end gap-2">
               {mails.map((mail) => (
-                <Link
-                  key={mail}
+                <Button onClick={()=>{track(mail, {location: 'footer'})}} key={mail} className='border-transparent hover:border-b hover:border-text-primary'>
+                  <Link
                   href={`mailto:${mail}`}
                   className="sm:text-base text-xs"
                 >
                   {mail}
                 </Link>
+                </Button>
               ))}
             </div>
           </div>
@@ -54,13 +57,14 @@ export default function Footer() {
             </p>
             <div className="flex flex-col items-end gap-2">
               {socials.map((item) => (
-                <Link
+                <Button key={item.slug} onClick={()=>{track(item.name, {location: 'footer'})}} className='border-transparent hover:border-b hover:border-text-primary'>
+                  <Link
                   href={item.url}
-                  key={item.slug}
                   className="sm:text-base text-xs"
                 >
                   {item.name}
                 </Link>
+                </Button>
               ))}
             </div>
           </div>

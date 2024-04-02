@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import { projects } from "@/constants/projects";
 import Button from "@/common/Form/Button";
+import { track } from '@vercel/analytics'
 
 export default function Projects() {
   return (
@@ -30,7 +31,7 @@ export default function Projects() {
                 <p className="text-sm">{p.description}</p>
               </div>
               <div className="pb-4">
-                <Button className="grow font-medium border-b border-transparent hover:border-text-primary lg:absolute lg:bottom-4">
+                <Button className="grow font-medium border-b border-transparent hover:border-text-primary lg:absolute lg:bottom-4" onClick={()=>{track(p.name, {location:'Project tile'})}}>
                   <Link href={p.url}>Link to project &rarr;</Link>
                 </Button>
               </div>
