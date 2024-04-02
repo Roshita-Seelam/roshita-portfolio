@@ -11,6 +11,7 @@
   "dependencies": {
     "@types/react-curved-text": "^2.0.3",
     "@vercel/analytics": "^1.2.2",
+    "@vercel/speed-insights": "^1.0.10",
     "antd": "^5.14.2",
     "classnames": "^2.5.1",
     "next": "14.1.0",
